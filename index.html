@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Secrets — The Media Training Book Executives Actually Use</title>
+<meta name="description" content="Amazon #1 Bestseller in 25 categories. 14 chapters, companion video lessons, and the exact system used to train Google, JPMorgan, and the United Nations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --body-bg: #faf8f4;
+  --section-alt: #f0ece4;
+  --section-white: #ffffff;
+  --border: #e2ddd6;
+  --text-dark: #111218;
+  --text-body: #3d3f55;
+  --text-muted: #72748a;
+  --gold: #c9a84c;
+  --gold-hover: #b8963e;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 9999;
+  font-size: 14px;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 8px; color: #000; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  background: var(--body-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-hover); }
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* --- Announcement Bar --- */
+.announcement-bar {
+  background: var(--gold);
+  color: #000;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.announcement-bar a { color: #000; text-decoration: underline; }
+
+/* --- Header --- */
+.site-header {
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.site-header.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+.wordmark span { color: var(--gold); }
+.header-nav { display: flex; gap: 32px; align-items: center; }
+.header-nav a {
+  color: var(--text-body);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.header-nav a:hover { color: var(--gold); }
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-gold:hover { background: var(--gold-hover); color: #000; transform: translateY(-1px); }
+.btn-outline-dark {
+  display: inline-block;
+  border: 2px solid var(--text-dark);
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s;
+}
+.btn-outline-dark:hover { background: var(--text-dark); color: #fff; }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--text-dark); margin: 5px 0; transition: 0.3s; }
+
+/* --- Hero --- */
+.hero {
+  background: var(--body-bg);
+  padding: 64px 0 72px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.book-cover-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 16px 16px 48px rgba(0,0,0,0.18), -4px 0 12px rgba(0,0,0,0.08);
+  transform: rotate(-2deg);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.book-img:hover {
+  transform: rotate(0deg);
+  box-shadow: 20px 20px 56px rgba(0,0,0,0.22);
+}
+.hero-content {}
+.badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.badge-row span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-row span:not(:last-child)::after {
+  content: ' · ';
+  color: var(--text-muted);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.hero .subhead {
+  font-size: 17px;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.buy-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.buy-buttons a { font-size: 15px; padding: 12px 24px; text-align: center; }
+.secondary-link {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.secondary-link a { color: var(--gold); font-weight: 500; }
+
+/* --- As Seen On --- */
+.media-bar {
+  background: var(--section-alt);
+  padding: 36px 0;
+  text-align: center;
+}
+.section-micro {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.media-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.media-logos img {
+  height: 36px;
+  width: auto;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: opacity 0.3s, filter 0.3s;
+}
+.media-logos img:hover { opacity: 0.9; filter: grayscale(0%); }
+
+/* --- Client Logos --- */
+.client-bar {
+  background: var(--section-white);
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.client-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.client-logos img {
+  height: 36px;
+  width: auto;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+.client-logos img:hover { opacity: 1; }
+
+/* --- Stats Bar --- */
+.stats-bar {
+  background: var(--section-alt);
+  padding: 48px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.stat-item {}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- Why This Matters --- */
+.why-section {
+  background: var(--section-white);
+  padding: 80px 0;
+}
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-headline {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 48px;
+  line-height: 1.2;
+}
+.pain-cards { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+.pain-card {
+  border-left: 3px solid var(--gold);
+  padding: 24px 28px;
+  background: var(--body-bg);
+  border-radius: 0 8px 8px 0;
+}
+.pain-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+.pain-card p { font-size: 15px; line-height: 1.7; }
+.bridge-line {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-style: italic;
+  color: var(--text-dark);
+  padding: 24px 0;
+}
+
+/* --- Chapters --- */
+.chapters-section {
+  background: var(--body-bg);
+  padding: 80px 0;
+}
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.chapter-card {
+  background: var(--section-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.chapter-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.chapter-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.chapter-card h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.chapter-card p { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+.section-subhead {
+  font-size: 17px;
+  color: var(--text-body);
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+
+/* --- Bonus Spotlight --- */
+.bonus-section {
+  background: var(--section-alt);
+  padding: 80px 0;
+  text-align: center;
+}
+.bonus-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+.bonus-card {
+  background: var(--section-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+}
+.bonus-icon { font-size: 28px; margin-bottom: 12px; }
+.bonus-card h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.bonus-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+/* --- Testimonials --- */
+.testimonials-section {
+  background: var(--section-white);
+  padding: 80px 0;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--body-bg);
+  border-radius: 10px;
+  padding: 32px;
+  border: 1px solid var(--border);
+}
+.testimonial-card blockquote {
+  font-size: 15px;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+.testimonial-card .attribution {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.testimonial-card .attribution span {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* --- About --- */
+.about-section {
+  background: var(--body-bg);
+  padding: 80px 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.about-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.about-photo img { width: 100%; height: auto; display: block; }
+.about-content h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.about-content p {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.credential-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.credential-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: var(--section-alt);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* --- Reviews --- */
+.reviews-section {
+  background: var(--section-white);
+  padding: 80px 0;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.review-card {
+  background: var(--body-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+}
+.review-stars { color: #f5a623; font-size: 16px; margin-bottom: 6px; }
+.review-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+.review-meta .verified { color: var(--gold); font-weight: 600; }
+.review-card blockquote {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 16px;
+}
+.review-card .reviewer {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.review-card .reviewer span {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* --- Email Capture --- */
+.capture-section {
+  background: var(--section-alt);
+  padding: 80px 0;
+  text-align: center;
+}
+.capture-section .section-headline { max-width: 600px; margin: 0 auto 12px; }
+.capture-section .section-subhead { max-width: 560px; margin: 0 auto 36px; text-align: center; }
+.capture-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.capture-form input[type="email"] {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.capture-form input[type="email"]:focus { border-color: var(--gold); }
+.capture-form .btn-gold { padding: 14px 28px; font-size: 15px; white-space: nowrap; }
+.capture-success {
+  display: none;
+  color: #2d8a4e;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 16px;
+}
+.capture-success a { color: var(--gold); font-weight: 600; }
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--section-white);
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.footer-links a { font-size: 14px; color: var(--text-muted); }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { font-size: 13px; color: var(--text-muted); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .book-img { max-width: 240px; }
+  .hero h1 { font-size: 32px; }
+  .chapters-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { max-width: 280px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .header-nav { display: none; }
+  .mobile-toggle { display: block; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 40px 0 48px; }
+  .hero h1 { font-size: 28px; }
+  .chapters-grid { grid-template-columns: 1fr; }
+  .buy-buttons { flex-direction: column; }
+  .buy-buttons a { width: 100%; }
+  .bonus-cards { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .capture-form { flex-direction: column; }
+  .media-logos { gap: 24px; }
+  .media-logos span { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip to content (ADA) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Announcement Bar -->
+<div class="announcement-bar">
+  Amazon #1 Bestseller in 25 Categories &mdash; <a href="#bonuses">Claim Your Free Bonuses &rarr;</a>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="wordmark">MEDIA <span>SECRETS</span></div>
+    <nav class="header-nav" id="header-nav">
+      <a href="#inside">What's Inside</a>
+      <a href="#about">About Jess</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#bonuses" class="btn-gold">Claim Bonuses</a>
+    </nav>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="main-content">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="book-cover-wrapper">
+        <img src="Images/media-secrets-book-1.png" alt="Media Secrets: A Media Training Crash Course by Jess Todtfeld — Amazon #1 Bestseller" class="book-img">
+      </div>
+      <div class="hero-content">
+        <div class="badge-row">
+          <span>#1 Amazon Bestseller</span>
+          <span>25 Categories</span>
+          <span>4 Countries</span>
+        </div>
+        <h1>The Media Training Book Executives Actually Use</h1>
+        <p class="subhead">14 chapters. Companion video lessons. The exact system Jess used to train Google, JPMorgan, and the United Nations &mdash; available for $7.99.</p>
+        <div class="buy-buttons">
+          <a href="https://www.amazon.com/Media-Secrets-Publicity-Interviews-Strategies/dp/1537537199/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.FKRynLoDjehbCv0RpKLATFtnr8ldZZZk-Oou2BM3wteVPK0ZH0Q6L3BmiCJ8k9Vwgy0X0OJWpkp3QGB7Xi1jkPqHcYNOwQeNfyZ-34FWMMXZlebLT6gZ6VXMF3jFI2T6Mm8hPx_ybzVHbcBTcfUxmEzXfCYFPTpEd5Vb5ggG3Q3K9NlsftdzNk4Nq4IORb6ycegjYOCDZWTn_PVxUdDLfM4jgQ6T_ZyCGx0WjICt7Uw.gD7dxgW1gT5nd37zVp4xyAhC49jBSUnoU8jXiBl7qW0&qid=1775932385&sr=8-1" target="_blank" rel="noopener" class="btn-gold">Paperback $24.95</a>
+          <a href="https://www.amazon.com/Media-Secrets-Publicity-Interviews-Strategies-ebook/dp/B01LWBVJZO/ref=tmm_kin_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.FKRynLoDjehbCv0RpKLATFtnr8ldZZZk-Oou2BM3wteVPK0ZH0Q6L3BmiCJ8k9Vwgy0X0OJWpkp3QGB7Xi1jkPqHcYNOwQeNfyZ-34FWMMXZlebLT6gZ6VXMF3jFI2T6Mm8hPx_ybzVHbcBTcfUxmEzXfCYFPTpEd5Vb5ggG3Q3K9NlsftdzNk4Nq4IORb6ycegjYOCDZWTn_PVxUdDLfM4jgQ6T_ZyCGx0WjICt7Uw.gD7dxgW1gT5nd37zVp4xyAhC49jBSUnoU8jXiBl7qW0&qid=1775932385&sr=8-1" target="_blank" rel="noopener" class="btn-outline-dark">Kindle $7.99</a>
+          <a href="https://www.amazon.com/Media-Secrets-Publicity-Interviews-Strategies/dp/B0CT94ZJ6X/ref=sr_1_1?crid=20SS12TGX0CPE&dib=eyJ2IjoiMSJ9.FKRynLoDjehbCv0RpKLATFtnr8ldZZZk-Oou2BM3wteVPK0ZH0Q6L3BmiCJ8k9Vwgy0X0OJWpkp3QGB7Xi1jkPqHcYNOwQeNfyZ-34FWMMXZlebLT6gZ6VXMF3jFI2T6Mm8hPx_ybzVHbcBTcfUxmEzXfCYFPTpEd5Vb5ggG3Q3K9NlsftdzNk4Nq4IORb6ycegjYOCDZWTn_PVxUdDLfM4jgQ6T_ZyCGx0WjICt7Uw.gD7dxgW1gT5nd37zVp4xyAhC49jBSUnoU8jXiBl7qW0&dib_tag=se&keywords=media+secrets+book&qid=1775932385&sprefix=media+secrets+book%2Caps%2C123&sr=8-1" target="_blank" rel="noopener" class="btn-outline-dark">Audiobook &mdash; Audible</a>
+        </div>
+        <p class="secondary-link">Already have the book? <a href="#bonuses">Access your free bonuses &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- As Seen On -->
+<section class="media-bar">
+  <div class="container">
+    <div class="section-micro">AS SEEN ON</div>
+    <div class="media-logos">
+      <img src="Images/ABC.png" alt="ABC News">
+      <img src="Images/NBC.png" alt="NBC">
+      <img src="Images/FOX.png" alt="FOX News">
+      <img src="Images/NY-Times.png" alt="The New York Times">
+    </div>
+  </div>
+</section>
+
+<!-- Client Logos -->
+<section class="client-bar">
+  <div class="container">
+    <div class="section-micro">TRUSTED BY LEADERS AT</div>
+    <div class="client-logos">
+      <img src="Images/goo.png" alt="Google">
+      <img src="Images/jp.png" alt="JPMorgan">
+      <img src="Images/AMEX.png" alt="American Express">
+      <img src="Images/United-Nations.png" alt="United Nations">
+      <img src="Images/AIG.png" alt="AIG">
+      <img src="Images/LandRover.png" alt="Land Rover">
+      <img src="Images/AARP.png" alt="AARP">
+      <img src="Images/ASPCA.png" alt="ASPCA">
+      <img src="Images/BuildAmericaMutual.png" alt="Build America Mutual">
+      <img src="Images/acronis.png" alt="Acronis">
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">#1</div>
+        <div class="stat-label">Amazon Bestseller</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">25</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">300+</div>
+        <div class="stat-label">Comms Teams Rely on It</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">112</div>
+        <div class="stat-label">Guinness Record Interviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">CSP</div>
+        <div class="stat-label">Certified Speaking Professional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why This Matters -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-label">WHY THIS MATTERS</div>
+    <h2 class="section-headline">Most experts walk into interviews without a system. It shows.</h2>
+    <div class="pain-cards">
+      <div class="pain-card">
+        <h3>You get pulled off your message &mdash; and can't find your way back.</h3>
+        <p>An interviewer takes you somewhere you didn't want to go. The question is off-topic, leading, or just unfair. You know your subject, but now you're lost in their frame. You leave the studio knowing you never said the three things you came there to say.</p>
+      </div>
+      <div class="pain-card">
+        <h3>You look like you have something to hide &mdash; even when you don't.</h3>
+        <p>Discomfort reads as deception on camera. A slight pause, a defensive answer, a missed beat &mdash; and suddenly the audience isn't sure they trust you. It's not about what you said. It's about what your body, your face, and your pacing said instead.</p>
+      </div>
+      <div class="pain-card">
+        <h3>You walk out knowing you had more to give.</h3>
+        <p>The point that would have made you quotable got buried. The message that would have landed perfectly never did. You got through the interview &mdash; but "getting through it" isn't why you showed up. There's a gap between a forgettable interview and a memorable one, and it comes down to a handful of techniques most guests never learn.</p>
+      </div>
+    </div>
+    <p class="bridge-line"><em>Media Secrets is the system that closes that gap.</em></p>
+  </div>
+</section>
+
+<!-- What's Inside -->
+<section class="chapters-section" id="inside">
+  <div class="container">
+    <div class="section-label">INSIDE THE BOOK</div>
+    <h2 class="section-headline">14 chapters. One complete media playbook.</h2>
+    <p class="section-subhead">Each chapter comes with a companion bonus video &mdash; unlocked free when you register below.</p>
+    <div class="chapters-grid">
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 01</div>
+        <h3>Secrets for Getting Started</h3>
+        <p>The foundational mindset and setup that separates media-ready guests from everyone else.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 02</div>
+        <h3>PR Secrets for Getting Booked</h3>
+        <p>Proven strategies for landing interviews across TV, radio, podcast, and print.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 03</div>
+        <h3>The Message System</h3>
+        <p>How to distill any complex idea into three clear messages no interviewer can derail.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 04</div>
+        <h3>The Answer System</h3>
+        <p>What to do when the question is unfair, off-topic, or designed to trip you up.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 05</div>
+        <h3>The Sound Bite Quote System</h3>
+        <p>The architecture of a quote that gets repeated, shared, and remembered.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 06</div>
+        <h3>Your Secret Control Techniques</h3>
+        <p>Advanced techniques for staying in control of any interview &mdash; without it feeling like a fight.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 07</div>
+        <h3>Looking and Sounding Your Best</h3>
+        <p>On-camera presence, wardrobe, setup, and the subtle signals that separate pros from amateurs.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 08</div>
+        <h3>The Mind of the Media</h3>
+        <p>What producers and journalists actually want &mdash; and how to give it to them.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 09</div>
+        <h3>Crisis Communication</h3>
+        <p>What to say, what not to say, and how to reclaim the narrative fast.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 10</div>
+        <h3>Media Traps</h3>
+        <p>The most common traps that catch even experienced guests &mdash; and how to avoid every one.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 11</div>
+        <h3>Mistakes</h3>
+        <p>The mistakes Jess has seen thousands of times &mdash; and exactly how to stop making them.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 12</div>
+        <h3>Media as Marketing</h3>
+        <p>How to turn every media appearance into lasting traffic, authority, and business momentum.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 13</div>
+        <h3>Handling Specific Interview Types</h3>
+        <p>TV, radio, podcast, print, live streaming &mdash; each format has its own rules.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">CHAPTER 14</div>
+        <h3>Your Quick Start Guide</h3>
+        <p>A one-page reference system you can use before any interview, anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bonus Spotlight -->
+<section class="bonus-section">
+  <div class="container">
+    <div class="section-label">FREE WITH YOUR BOOK</div>
+    <h2 class="section-headline">Get the Free 30-Minute Quick Start Audio + 14 Bonus Lessons</h2>
+    <p class="section-subhead" style="max-width:640px;margin:0 auto 40px;text-align:center;">Most books end at the last page. This one comes with a complete companion resource library &mdash; a 30-minute audio program plus video lessons that go deeper on every chapter. Yours free when you register.</p>
+    <div class="bonus-cards">
+      <div class="bonus-card">
+        <div class="bonus-icon">&#127911;</div>
+        <h3>30-Min Quick Start Audio</h3>
+        <p>Hit the ground running. The fastest path from zero to media-ready.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">&#127916;</div>
+        <h3>14 Bonus Video Lessons</h3>
+        <p>One companion video per chapter. Go deeper on the techniques that matter most.</p>
+      </div>
+    </div>
+    <a href="#bonuses" class="btn-gold" style="font-size:16px;padding:14px 32px;">Claim Your Free Bonuses &rarr;</a>
+  </div>
+</section>
+
+<!-- Amazon Reviews — first position -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-label">WHAT READERS SAY</div>
+    <h2 class="section-headline">What readers and clients say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-meta">Audiobook &middot; <span class="verified">Verified Purchase</span></div>
+        <blockquote>&ldquo;Media Secrets is one of the most practical media-training books I've picked up. It doesn't waste time with theory &mdash; you get straight, actionable advice that actually prepares you for real interviews. It shows you how to turn any media appearance into real traction &mdash; website visits, sales, and ongoing opportunities. Whether you're an author, entrepreneur, or just someone who wants to communicate better, this guide is packed with usable tools.&rdquo;</blockquote>
+        <div class="reviewer">Cyber Guy</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-meta">Kindle</div>
+        <blockquote>&ldquo;'Media Secrets' is the new Bible for media training. It contains every single thing one needs before doing a media interview &mdash; from 'what to say' to 'what to wear.' Media training is important because what good is landing an interview if you cannot get the listener/viewer to take action? As a publicist I plan to buy this book and give it to my clients to read. Nothing could be more useful.&rdquo;</blockquote>
+        <div class="reviewer">FlyingBooksUSA</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-meta">Kindle &middot; <span class="verified">Verified Purchase</span></div>
+        <blockquote>&ldquo;Jess is truly one of the nicest, most authentic people I've met. He's amazing at distilling a lifetime of information and experience into a book that's easy to read. Just as importantly, he gives you very actionable steps that you can easily follow. I spent a day working with him in person in a small workshop for a lot more money, and it was worth every penny &mdash; so this book is a bargain!!!&rdquo;</blockquote>
+        <div class="reviewer">Bobbi Kline MD<span>Author, The Blood Type Cookbook &middot; CEO, Genomic Solutions Now</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-meta">Paperback &middot; <span class="verified">Verified Purchase</span></div>
+        <blockquote>&ldquo;After working with Jess Todtfeld for over 15 years, we highly recommend his book. Jess coached one of our clients in prep for a national TV interview, and it was by far their best interview to date. Don't hesitate. Buy this book. Media Secrets is a go-to guide for anyone with a story to tell.&rdquo;</blockquote>
+        <div class="reviewer">Liz H. Kelly<span>Media Coach &amp; PR Professional Advisor, Goody PR</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Jess -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="section-label">ABOUT THE AUTHOR</div>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="Images/jess-headshot.jpg" alt="Jess Todtfeld, media trainer and author of Media Secrets">
+      </div>
+      <div class="about-content">
+        <h2>Jess Todtfeld</h2>
+        <p>Jess Todtfeld spent 13 years as a national television producer at ABC, NBC, and FOX, producing thousands of segments and helping launch programs including <em>The O'Reilly Factor</em> and <em>Fox &amp; Friends</em>. Today he is one of the most sought-after media trainers in the country, recognized by The Washington Post as a media training expert.</p>
+        <p>He holds a Guinness World Record for the most media interviews conducted in 24 hours and has trained executives, spokespeople, and leadership teams at Google, JPMorgan, American Express, the United Nations, and hundreds of Fortune 500 organizations. He is a Certified Speaking Professional (CSP) &mdash; the highest earned designation in the professional speaking industry.</p>
+        <div class="credential-badges">
+          <span class="credential-badge">ABC / NBC / FOX Producer</span>
+          <span class="credential-badge">Guinness Record Holder</span>
+          <span class="credential-badge">CSP</span>
+          <span class="credential-badge">Washington Post Expert</span>
+          <span class="credential-badge">300+ Comms Teams</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Client Testimonials -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-label">FROM THE TRAINING ROOM</div>
+    <h2 class="section-headline">What clients say after working with Jess</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <blockquote>&ldquo;I closed a million-dollar deal after hearing Jess' strategies. I can't begin to thank you.&rdquo;</blockquote>
+        <div class="attribution">Les Richmond<span>Build America Mutual</span></div>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>&ldquo;Jess sums up what top performers need to know about presenting. I left with tools I used immediately.&rdquo;</blockquote>
+        <div class="attribution">Tim Holt<span>President, Preservation Capital</span></div>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>&ldquo;Hard to walk away without 'aha' moments and valuable pointers for dramatically improving communication skills.&rdquo;</blockquote>
+        <div class="attribution">Vanessa Lowry<span>Director of Communications, American Express</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Email Capture -->
+<section class="capture-section" id="bonuses">
+  <div class="container">
+    <div class="section-label">YOUR FREE BONUSES</div>
+    <h2 class="section-headline">Claim your free bonuses &mdash; the 30-min Quick Start Audio + 14 video lessons.</h2>
+    <p class="section-subhead">Free for all readers. Enter your email once to unlock your complete bonus library.</p>
+    <form class="capture-form" id="capture-form" action="https://formspree.io/f/mgopqgjv" method="POST">
+      <input type="hidden" name="form-name" value="media-secrets-bonuses">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit" class="btn-gold" id="capture-btn">Get Access &rarr;</button>
+    </form>
+    <div class="capture-success" id="capture-success">
+      You're in! <a href="portal.html">Open Your Bonuses &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="https://successinmedia.com" target="_blank" rel="noopener">SuccessInMedia.com</a>
+      <a href="https://successinmedia.com/get-a-quick-quote.html" target="_blank" rel="noopener">Work with Jess</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Success in Media, Inc. &middot; Jess Todtfeld</p>
+  </div>
+</footer>
+
+<script>
+// Sticky header border
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Mobile menu
+const toggle = document.getElementById('mobile-toggle');
+const nav = document.getElementById('header-nav');
+toggle.addEventListener('click', () => {
+  const open = nav.style.display === 'flex';
+  nav.style.display = open ? 'none' : 'flex';
+  if (!open) {
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '100%';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = '#fff';
+    nav.style.padding = '16px 24px';
+    nav.style.borderBottom = '1px solid var(--border)';
+    nav.style.gap = '16px';
+    nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.06)';
+  }
+});
+
+// Email capture form
+const form = document.getElementById('capture-form');
+const btn = document.getElementById('capture-btn');
+const success = document.getElementById('capture-success');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = form.querySelector('input[type="email"]').value;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email, 'form-name': 'media-secrets-bonuses' })
+    });
+
+    localStorage.setItem('msb_email', email);
+
+    if (res.ok) {
+      window.location.href = 'portal.html';
+    } else {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+  } catch (err) {
+    localStorage.setItem('msb_email', email);
+    form.style.display = 'none';
+    success.style.display = 'block';
+  }
+});
+</script>
+
+</body>
+</html>

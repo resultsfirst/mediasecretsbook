@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Secrets — Bonus Portal</title>
+<meta name="description" content="Your free Media Secrets bonus video library. 14 companion lessons, quick start audio, and resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --dark: #0a0b14;
+  --dark-mid: #12131e;
+  --dark-surface: #1a1b2e;
+  --dark-border: #252637;
+  --white: #ffffff;
+  --light: #d8daee;
+  --muted: #72748a;
+  --gold: #c9a84c;
+  --gold-hover: #b8963e;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --header-h: 60px;
+  --sidebar-w: 280px;
+}
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--light);
+  background: var(--dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-hover); }
+
+/* --- Gate Screen --- */
+.gate-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.gate-card {
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+.gate-card .wordmark {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.gate-card .wordmark span { color: var(--gold); }
+.gate-card .gate-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.gate-card h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.gate-card p.desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.gate-form { text-align: left; }
+.gate-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--light);
+  margin-bottom: 6px;
+}
+.gate-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--dark-border);
+  border-radius: 6px;
+  background: var(--dark-mid);
+  color: var(--white);
+  font-size: 15px;
+  font-family: var(--font-sans);
+  outline: none;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+.gate-form input:focus { border-color: var(--gold); }
+.gate-form .optional { color: var(--muted); font-weight: 400; }
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+  font-family: var(--font-sans);
+}
+.btn-gold:hover { background: var(--gold-hover); }
+
+/* --- Portal Layout --- */
+.portal-wrap {
+  display: none;
+  height: 100vh;
+  flex-direction: column;
+}
+.portal-wrap.active { display: flex; }
+
+/* Header */
+.portal-header {
+  height: var(--header-h);
+  background: var(--dark-mid);
+  border-bottom: 1px solid var(--dark-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+.portal-header .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.portal-header .book-icon {
+  width: 32px;
+  height: 42px;
+  background: #0d1c38;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: #4ecdc4;
+  font-weight: 700;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.portal-header .brand-text strong {
+  color: var(--white);
+  font-size: 15px;
+}
+.portal-header .brand-text small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.portal-header .right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.portal-header .sim-link {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+}
+.portal-header .btn-gold { padding: 8px 18px; font-size: 13px; width: auto; }
+.mobile-sidebar-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--dark-border);
+  color: var(--light);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+/* Body */
+.portal-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.portal-sidebar {
+  width: var(--sidebar-w);
+  background: var(--dark-mid);
+  border-right: 1px solid var(--dark-border);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.sidebar-section {}
+.sidebar-section-header {
+  background: var(--dark-surface);
+  padding: 12px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  border-bottom: 1px solid var(--dark-border);
+}
+.sidebar-section-header .arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+  color: var(--muted);
+}
+.sidebar-section-header.collapsed .arrow { transform: rotate(-90deg); }
+.sidebar-section.upsell .sidebar-section-header {
+  background: rgba(201,168,76,0.07);
+  color: var(--gold);
+}
+.sidebar-items { border-bottom: 1px solid var(--dark-border); }
+.sidebar-items.collapsed { display: none; }
+.sidebar-item {
+  display: block;
+  padding: 10px 18px 10px 20px;
+  font-size: 13px;
+  color: var(--light);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+  line-height: 1.4;
+}
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.03);
+  color: var(--white);
+}
+.sidebar-item.active {
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  color: var(--gold);
+  font-weight: 500;
+}
+.sidebar-upsell-content {
+  padding: 16px 18px;
+}
+.sidebar-upsell-content .upsell-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.sidebar-upsell-content .upsell-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.sidebar-upsell-content .upsell-list li {
+  font-size: 13px;
+  color: var(--light);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+.sidebar-upsell-content .upsell-list li:last-child { border-bottom: none; }
+.sidebar-upsell-content .btn-gold {
+  font-size: 13px;
+  padding: 10px 16px;
+  text-align: center;
+  display: block;
+  margin-bottom: 8px;
+}
+.sidebar-upsell-content .upsell-note {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Main Content */
+.portal-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 48px;
+  background: var(--dark);
+}
+.breadcrumb {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.breadcrumb .section-name { color: var(--muted); }
+.breadcrumb .sep { color: var(--dark-border); margin: 0 8px; }
+.breadcrumb .lesson-label { color: var(--gold); }
+.lesson-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.lesson-duration {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--dark-surface);
+}
+.video-responsive iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+.video-placeholder {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-surface);
+  color: var(--muted);
+}
+.video-placeholder .play-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.video-placeholder .play-icon::after {
+  content: '';
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent var(--gold);
+  margin-left: 3px;
+}
+.video-placeholder span { font-size: 14px; }
+.video-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+/* Lesson Notes */
+.lesson-notes {
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 10px;
+  padding: 24px 28px;
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+.lesson-notes .notes-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.lesson-notes p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* Upsell Card */
+.upsell-card {
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 720px;
+}
+.upsell-card .upsell-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.upsell-card h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.upsell-card p {
+  font-size: 14px;
+  color: var(--light);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.upsell-card .btn-gold { width: auto; padding: 12px 28px; }
+.upsell-card .upsell-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* Links/resources view */
+.resource-links {
+  max-width: 720px;
+}
+.resource-link-card {
+  display: block;
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  color: var(--light);
+  transition: border-color 0.2s, background 0.2s;
+  font-size: 15px;
+}
+.resource-link-card:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.05);
+  color: var(--white);
+}
+.resource-link-card .arrow-r { color: var(--gold); margin-left: 8px; }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .portal-sidebar {
+    position: fixed;
+    left: -100%;
+    top: var(--header-h);
+    bottom: 0;
+    z-index: 50;
+    width: 280px;
+    transition: left 0.3s;
+  }
+  .portal-sidebar.open { left: 0; }
+  .mobile-sidebar-toggle { display: block; }
+  .portal-main { padding: 24px 20px; }
+  .portal-header .sim-link { display: none; }
+  .lesson-title { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Gate Screen -->
+<div class="gate-screen" id="gate-screen">
+  <div class="gate-card">
+    <div class="wordmark">MEDIA <span>SECRETS</span></div>
+    <p class="gate-sub">Book Bonus Community</p>
+    <h2>Unlock Your Free Bonuses</h2>
+    <p class="desc">Enter your email to access the 30-minute Quick Start Audio, 14 bonus video lessons, and resources from the book.</p>
+    <form class="gate-form" id="gate-form" action="https://formspree.io/f/mgopqgjv" method="POST">
+      <label>First Name <span class="optional">(optional)</span></label>
+      <input type="text" name="name" id="gate-name" placeholder="First name">
+      <label>Email <span style="color:#e74c3c;">*</span></label>
+      <input type="email" name="email" id="gate-email" placeholder="your@email.com" required>
+      <button type="submit" class="btn-gold" id="gate-btn">Get Access &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<!-- Portal -->
+<div class="portal-wrap" id="portal-wrap">
+
+  <!-- Header -->
+  <header class="portal-header">
+    <div class="left">
+      <button class="mobile-sidebar-toggle" id="sidebar-toggle">Menu</button>
+      <div class="book-icon">MS</div>
+      <div class="brand-text">
+        <strong>Media Secrets</strong>
+        <small>Book Bonus Community</small>
+      </div>
+    </div>
+    <div class="right">
+      <a href="https://sim-todtfeld-2026.netlify.app" target="_blank" rel="noopener" class="sim-link">Work with Jess &rarr;</a>
+      <a href="https://calendly.com/jesstodtfeld/15min" target="_blank" rel="noopener" class="btn-gold">Book a 15-Min Fit Call</a>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="portal-body">
+
+    <!-- Sidebar -->
+    <aside class="portal-sidebar" id="portal-sidebar">
+
+      <!-- Section 1: Quick Start -->
+      <div class="sidebar-section" data-section="quick-start">
+        <div class="sidebar-section-header" data-toggle="quick-start">
+          Media Training Quick Start <span class="arrow">&#9660;</span>
+        </div>
+        <div class="sidebar-items" id="items-quick-start">
+          <div class="sidebar-item active" data-lesson="welcome">Getting Started &mdash; Click here first</div>
+          <div class="sidebar-item" data-lesson="quickstart">Quick Start Audio</div>
+        </div>
+      </div>
+
+      <!-- Section 2: Videos from the Book -->
+      <div class="sidebar-section" data-section="book-videos">
+        <div class="sidebar-section-header" data-toggle="book-videos">
+          Videos from the Book <span class="arrow">&#9660;</span>
+        </div>
+        <div class="sidebar-items" id="items-book-videos">
+          <div class="sidebar-item" data-lesson="powerposes">Power Poses</div>
+          <div class="sidebar-item" data-lesson="athlete">Think Like an Athlete</div>
+          <div class="sidebar-item" data-lesson="leverage">Leverage Your Interviews</div>
+          <div class="sidebar-item" data-lesson="practice">Practice Smarter, Not Harder</div>
+          <div class="sidebar-item" data-lesson="messages">The Message System</div>
+          <div class="sidebar-item" data-lesson="beyondbridging">Beyond Bridging</div>
+          <div class="sidebar-item" data-lesson="soundbites">Sound Bites</div>
+          <div class="sidebar-item" data-lesson="optins">Easy Opt-ins: Converting Interviews</div>
+          <div class="sidebar-item" data-lesson="makeup">On-Camera Look &amp; Makeup</div>
+          <div class="sidebar-item" data-lesson="crisis">Crisis Communication</div>
+          <div class="sidebar-item" data-lesson="traps">Media Traps</div>
+          <div class="sidebar-item" data-lesson="mistakes">Common Mistakes</div>
+        </div>
+      </div>
+
+      <!-- Section 3: Resources -->
+      <div class="sidebar-section" data-section="resources">
+        <div class="sidebar-section-header" data-toggle="resources">
+          Resources from the Book <span class="arrow">&#9660;</span>
+        </div>
+        <div class="sidebar-items" id="items-resources">
+          <div class="sidebar-item" data-lesson="prchapter">Free PR Chapter</div>
+          <div class="sidebar-item" data-lesson="readreceipts">Read Receipt Tools</div>
+          <div class="sidebar-item" data-lesson="funnels">Landing Pages &amp; Funnels</div>
+          <div class="sidebar-item" data-lesson="quick">Quick Start Guide</div>
+        </div>
+      </div>
+
+      <!-- Section 4: Jess Recommends -->
+      <div class="sidebar-section" data-section="recommends">
+        <div class="sidebar-section-header" data-toggle="recommends">
+          Jess Recommends <span class="arrow">&#9660;</span>
+        </div>
+        <div class="sidebar-items" id="items-recommends">
+          <div class="sidebar-item" data-lesson="jessrecommends">Training Portal &amp; Resources</div>
+        </div>
+      </div>
+
+      <!-- Section 5: Work with Jess -->
+      <div class="sidebar-section upsell" data-section="upsell">
+        <div class="sidebar-section-header" data-toggle="upsell">
+          Work with Jess <span class="arrow">&#9660;</span>
+        </div>
+        <div class="sidebar-items" id="items-upsell">
+          <div class="sidebar-upsell-content">
+            <p class="upsell-sub">In-person, virtual, or online &mdash; let's solve the problem</p>
+            <ul class="upsell-list">
+              <li>1:1 Media Training Intensive</li>
+              <li>In-Person Training (NYC)</li>
+              <li>Team &amp; Corporate Spokesperson Training</li>
+              <li>High-Stakes Presentation Coaching</li>
+              <li>Online Courses &amp; Programs</li>
+            </ul>
+            <a href="https://calendly.com/jesstodtfeld/15min" target="_blank" rel="noopener" class="btn-gold">Book a 15-Min Fit Call &rarr;</a>
+            <p class="upsell-note">Jess works with a limited number of clients each month. This call helps identify the right next step for your situation.</p>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="portal-main" id="portal-main">
+      <!-- Populated by JS -->
+    </main>
+
+  </div>
+</div>
+
+<script>
+// --- Lesson Data ---
+const LESSONS = {
+  welcome: {
+    title: 'Getting Started — Click here first',
+    section: 'Media Training Quick Start',
+    youtubeId: '',
+    duration: '',
+    notes: 'Welcome to your Media Secrets bonus portal. Start here for a quick orientation, then work through the lessons at your own pace.'
+  },
+  quickstart: {
+    title: 'Quick Start Audio',
+    section: 'Media Training Quick Start',
+    youtubeId: 'tcN57f7ennY',
+    duration: '~30 min',
+    notes: 'The fastest path from zero to media-ready. Listen to this 30-minute audio program before your next interview.'
+  },
+  powerposes: {
+    title: 'Power Poses',
+    section: 'Videos from the Book',
+    youtubeId: 'EbxwiABcDKs',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  athlete: {
+    title: 'Think Like an Athlete',
+    section: 'Videos from the Book',
+    youtubeId: '3M2jx6_buro',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  leverage: {
+    title: 'Leverage Your Interviews',
+    section: 'Videos from the Book',
+    youtubeId: 'tTCH1n7W5a4',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  practice: {
+    title: 'Practice Smarter, Not Harder',
+    section: 'Videos from the Book',
+    youtubeId: 'htH53l9UC_U',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  messages: {
+    title: 'The Message System',
+    section: 'Videos from the Book',
+    youtubeId: 'B1fGplyLAKg',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  beyondbridging: {
+    title: 'Beyond Bridging',
+    section: 'Videos from the Book',
+    youtubeId: 'vEKPDs_ulJE',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  soundbites: {
+    title: 'Sound Bites',
+    section: 'Videos from the Book',
+    youtubeId: '3u763d772dk',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  optins: {
+    title: 'Easy Opt-ins: Converting Interviews',
+    section: 'Videos from the Book',
+    youtubeId: 'JyxhFWb3F2k',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  makeup: {
+    title: 'On-Camera Look & Makeup',
+    section: 'Videos from the Book',
+    youtubeId: 'ZowQoSZ30M8',
+    youtubeId2: 'AVTaOx-3SbU',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  crisis: {
+    title: 'Crisis Communication',
+    section: 'Videos from the Book',
+    youtubeId: 'GIiZ8WREQ0M',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  traps: {
+    title: 'Media Traps',
+    section: 'Videos from the Book',
+    youtubeId: 'MUhLAclymnk',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  mistakes: {
+    title: 'Common Mistakes',
+    section: 'Videos from the Book',
+    youtubeId: 'crJBYFSRTcQ',
+    duration: '',
+    notes: 'Key takeaways, action steps, and techniques from this lesson will appear here.'
+  },
+  prchapter: {
+    title: 'Free PR Chapter',
+    section: 'Resources from the Book',
+    youtubeId: 'OSMZrFo7PDQ',
+    duration: '',
+    notes: 'Bonus PR strategies from the book. Learn how to land media coverage on your own.'
+  },
+  readreceipts: {
+    title: 'Read Receipt Tools',
+    section: 'Resources from the Book',
+    youtubeId: '3fP80GaaejQ',
+    duration: '',
+    notes: 'Tools and techniques for tracking your media outreach and knowing when your pitches get opened.'
+  },
+  funnels: {
+    title: 'Landing Pages & Funnels',
+    section: 'Resources from the Book',
+    youtubeId: 'NIss-QBp9Ps',
+    duration: '',
+    notes: 'How to convert media appearances into lasting business results with landing pages and funnels.'
+  },
+  quick: {
+    title: 'Quick Start Guide',
+    section: 'Resources from the Book',
+    youtubeId: 'lkmi8DWSUPI',
+    duration: '',
+    notes: 'Your one-page reference system you can use before any interview, anytime.'
+  },
+  jessrecommends: {
+    title: 'Training Portal & Resources',
+    section: 'Jess Recommends',
+    type: 'links',
+    links: [
+      { label: 'Success in Media Training Portal', url: 'https://sim-todtfeld-2026.netlify.app', desc: 'Explore media training services, industry expertise, and resources.' },
+      { label: 'Book a 15-Min Fit Call', url: 'https://calendly.com/jesstodtfeld/15min', desc: 'Talk to Jess about your specific situation and goals.' },
+      { label: 'Get a Quick Quote', url: 'https://sim-todtfeld-2026.netlify.app/get-a-quick-quote.html', desc: 'Fill out a quick form and get a custom proposal.' }
+    ]
+  }
+};
+
+// --- Auth Gate ---
+const gateScreen = document.getElementById('gate-screen');
+const portalWrap = document.getElementById('portal-wrap');
+const gateForm = document.getElementById('gate-form');
+
+function checkAccess() {
+  if (localStorage.getItem('msb_email')) {
+    gateScreen.style.display = 'none';
+    portalWrap.classList.add('active');
+    return true;
+  }
+  return false;
+}
+
+if (!checkAccess()) {
+  gateForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('gate-email').value;
+    const name = document.getElementById('gate-name').value;
+    const btn = document.getElementById('gate-btn');
+    btn.textContent = 'Unlocking...';
+    btn.disabled = true;
+
+    localStorage.setItem('msb_email', email);
+    if (name) localStorage.setItem('msb_name', name);
+
+    try {
+      await fetch(gateForm.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email, name, 'form-name': 'media-secrets-portal' })
+      });
+    } catch (err) { /* form still works via localStorage */ }
+
+    gateScreen.style.display = 'none';
+    portalWrap.classList.add('active');
+    renderLesson('welcome');
+  });
+}
+
+// --- Sidebar Toggle ---
+document.querySelectorAll('.sidebar-section-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const section = header.getAttribute('data-toggle');
+    const items = document.getElementById('items-' + section);
+    if (items) {
+      items.classList.toggle('collapsed');
+      header.classList.toggle('collapsed');
+    }
+  });
+});
+
+// --- Mobile Sidebar ---
+const sidebar = document.getElementById('portal-sidebar');
+document.getElementById('sidebar-toggle').addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
+
+// --- Lesson Rendering ---
+const mainEl = document.getElementById('portal-main');
+
+function renderLesson(id) {
+  const lesson = LESSONS[id];
+  if (!lesson) return;
+
+  // Update sidebar active state
+  document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+  const activeItem = document.querySelector(`[data-lesson="${id}"]`);
+  if (activeItem) activeItem.classList.add('active');
+
+  // Close mobile sidebar
+  sidebar.classList.remove('open');
+
+  // Build content
+  let html = '';
+
+  // Breadcrumb
+  html += `<div class="breadcrumb">
+    <span class="section-name">${lesson.section}</span>
+    <span class="sep">&middot;</span>
+    <span class="lesson-label">Bonus Lesson</span>
+  </div>`;
+
+  // Title
+  html += `<h1 class="lesson-title">${lesson.title}</h1>`;
+
+  // Duration
+  if (lesson.duration) {
+    html += `<p class="lesson-duration">Video &middot; ${lesson.duration}</p>`;
+  }
+
+  // Links type (Jess Recommends)
+  if (lesson.type === 'links') {
+    html += '<div class="resource-links">';
+    lesson.links.forEach(link => {
+      html += `<a href="${link.url}" target="_blank" rel="noopener" class="resource-link-card">
+        ${link.label} <span class="arrow-r">&rarr;</span>
+        ${link.desc ? `<br><small style="color:var(--muted);font-size:12px;">${link.desc}</small>` : ''}
+      </a>`;
+    });
+    html += '</div>';
+  } else {
+    // Video embed(s)
+    if (lesson.youtubeId) {
+      html += `<div class="video-wrapper">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/${lesson.youtubeId}" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>`;
+    } else {
+      html += `<div class="video-wrapper">
+        <div class="video-responsive">
+          <div class="video-placeholder">
+            <div class="play-icon"></div>
+            <span>${lesson.title}</span>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    // Second video (makeup)
+    if (lesson.youtubeId2) {
+      html += `<p class="video-label">Part 2</p>`;
+      html += `<div class="video-wrapper">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/${lesson.youtubeId2}" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>`;
+    }
+
+    // Lesson notes
+    html += `<div class="lesson-notes">
+      <div class="notes-label">LESSON NOTES</div>
+      <p>${lesson.notes || 'Key takeaways, action steps, and techniques from this lesson will appear here.'}</p>
+    </div>`;
+  }
+
+  // Upsell card (always, on every lesson)
+  html += `<div class="upsell-card">
+    <div class="upsell-label">READY TO ACCELERATE YOUR RESULTS?</div>
+    <h3 style="font-family:var(--font-display);font-size:24px;color:var(--white);margin-bottom:12px;">Work Directly with Jess</h3>
+    <p>A focused 2-3 hour intensive &mdash; on camera, on your messages, on your strategy. The same session used by executives at Google, JPMorgan, the United Nations, and American Express. Jess works with a limited number of clients each month.</p>
+    <a href="https://calendly.com/jesstodtfeld/15min" target="_blank" rel="noopener" class="btn-gold">Book a 15-Min Fit Call &rarr;</a>
+    <p class="upsell-sub">Jess will recommend the right next step for your situation.</p>
+  </div>`;
+
+  mainEl.innerHTML = html;
+  mainEl.scrollTop = 0;
+}
+
+// --- Sidebar Click Handlers ---
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  item.addEventListener('click', () => {
+    renderLesson(item.getAttribute('data-lesson'));
+  });
+});
+
+// --- Initial render ---
+if (checkAccess()) {
+  renderLesson('welcome');
+}
+</script>
+
+</body>
+</html>

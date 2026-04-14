@@ -1,0 +1,130 @@
+# MediaSecretsBook.com — Netlify config
+
+# Old ClickFunnels URLs → 301 redirects
+
+[[redirects]]
+  from = "/launch"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/membership-area9679741"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/membership-area9679741/38f4844756d"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/bonus-video-powerposes"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/athlete"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/leverage"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/quick"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/prchapter"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/practice"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/readreceipts"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/messages"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/beyondbridging"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/soundbites"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/optins"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/makeup"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/crisis"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/traps"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/mistakes"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/funnels"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/jessrecommends"
+  to = "/portal"
+  status = 301
+
+[[redirects]]
+  from = "/sendmessage"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/insider-page"
+  to = "/"
+  status = 301
+
+# prsecretweapons is now a real page — redirect .html-less URL
+[[redirects]]
+  from = "/prsecretweapons"
+  to = "/prsecretweapons.html"
+  status = 200
+
+[[redirects]]
+  from = "/quickstartaudio"
+  to = "/portal"
+  status = 301
+
+# Clean URLs for portal
+[[redirects]]
+  from = "/portal"
+  to = "/portal.html"
+  status = 200
