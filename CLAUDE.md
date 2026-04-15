@@ -3,7 +3,8 @@
 ## Project
 Companion book site to SuccessInMedia.com. Two surfaces: public landing page
 (light/warm aesthetic) and bonus portal (portal.html, dark aesthetic). Pure static
-HTML + vanilla JS, deployed to Netlify via drag-and-drop.
+HTML + vanilla JS, deployed via GitHub → Cloudflare Pages (repo:
+github.com/resultsfirst/mediasecretsbook, auto-deploys on push to main).
 
 ## Reference
 - SIM site: https://sim-todtfeld-2026.netlify.app
